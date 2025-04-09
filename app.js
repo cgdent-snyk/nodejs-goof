@@ -14,8 +14,10 @@ var path = require('path');
 var ejsEngine = require('ejs-locals');
 var bodyParser = require('body-parser');
 var session = require('express-session')
+var csrf = require('csurf')
 var methodOverride = require('method-override');
 var logger = require('morgan');
+var helmet = require('helmet');
 var errorHandler = require('errorhandler');
 var optional = require('optional');
 var marked = require('marked');
@@ -45,6 +47,7 @@ app.use(session({
   cookie: { path: '/' }
 }))
 app.use(bodyParser.json());
+app.use(csrf())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
 
@@ -80,6 +83,7 @@ if (app.get('env') == 'development') {
   app.use(errorHandler());
 }
 
+app.use(helmet());
 var token = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23a9';
 console.log('token: ' + token);
 
