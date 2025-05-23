@@ -88,5 +88,5 @@ http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var token2 = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23b0';
+var token = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23b0';
 console.log('token: ' + token);
