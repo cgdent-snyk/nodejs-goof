@@ -26,6 +26,7 @@ var cons = require('consolidate');
 const hbs = require('hbs')
 
 var app = express();
+app.use(csurf());
 var routes = require('./routes');
 var routesUsers = require('./routes/users.js')
 
@@ -86,3 +87,6 @@ console.log('token: ' + token);
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var token2 = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23b0';
+console.log('token: ' + token);
